@@ -166,7 +166,7 @@ def source_rna(protein):
     return count%mod
   
     
-def splice(dna,intron_list):
+def splice_rna:
     for strand in intron_list:
         dna = dna.replace(strand,"")
     rna = dna2rna(dna)
