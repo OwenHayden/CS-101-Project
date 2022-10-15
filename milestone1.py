@@ -197,7 +197,6 @@ def rna2codon(triplets):
             'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
             'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
         }
-def rna2_codon(triplets):
     amino = ''
     for triplet in range(0,int( len( triplets ) / 3 )):
         triplet = triplets[3*triplet:3*triplet+3]
