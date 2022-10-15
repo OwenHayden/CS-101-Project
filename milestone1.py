@@ -1,19 +1,18 @@
 def s(dna):
+    
     #calculates number of times each nucleotide appears in a string
     #makes sure string is capatalized 
+    
     dna = dna.upper()
     count_A = dna.count('A')
     count_C = dna.count('C')
     count_G = dna.count('G')
     count_T = dna.count('T')
-    return count_A,count_C,count_G,count_T
-#calls function and nucleotides being counted
-count = s("")
-nucleotides = ('A','C','G','T')
-#makes a dictionary
-#creates an item using nucleotides and subsequent value count
-dictionary = dict(zip(nucleotides,count))
-print(dictionary)
+
+    #creates dictionary with each key and value 
+    dictionary = {'A':count_A,'C':count_C,'G':count_G,'T':count_T}
+    return dictionary
+
 #sources
 #https://appdividend.com/2022/09/24/python-zip-dictionary/
 #https://www.youtube.com/watch?v=qj-V2Ep4coY
