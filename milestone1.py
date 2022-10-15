@@ -8,7 +8,7 @@ def dna_count(dna):
     count_T = dna.count('T')
     return count_A,count_C,count_G,count_T
 #calls function and nucleotides being counted
-count = s("")
+count = dna_count("")
 nucleotides = ('A','C','G','T')
 #makes a dictionary
 #creates an item using nucleotides and subsequent value count
