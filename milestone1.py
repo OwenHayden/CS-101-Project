@@ -1,4 +1,4 @@
-def s(dna):
+def dna_count(dna):
     #calculates number of times each nucleotide appears in a string
     #makes sure string is capatalized 
     dna = dna.upper()
@@ -182,6 +182,7 @@ def splice_rna(dna, intron_list):
         dna = dna.replace(strand,"")
     rna = dna2rna(dna)
     return rna2codon(rna)
+<<<<<<< HEAD
 def rna2codon(triplets):
     codon2amino = {
             'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
@@ -196,6 +197,9 @@ def rna2codon(triplets):
             'UGU': 'C', 'UGC': 'C', 'UGA': '*', 'UGG': 'W',        'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R',
             'AGU': 'S', 'AGC': 'S', 'AGA': 'R', 'AGG': 'R',        'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
         }
+=======
+def rna2_codon(triplets):
+>>>>>>> df7f90de2dc08ac3641026d4801d1cbeac4df4ad
     amino = ''
     for triplet in range(0,int( len( triplets ) / 3 )):
         triplet = triplets[3*triplet:3*triplet+3]
