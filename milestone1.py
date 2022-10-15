@@ -202,8 +202,7 @@ def rna2codon(triplets):
     return amino
 
 def splice_rna(dna, intron_list):
+    for item in intron_list:
+        dna = dna.replace(item,"")
     rna = dna2rna(dna)
-    for strand in intron_list:
-        dna = dna.replace(strand,"")
     return rna2codon(rna)
-
