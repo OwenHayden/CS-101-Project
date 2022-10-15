@@ -165,14 +165,6 @@ def source_rna(protein):
         count = (count * temporary)        
     return count%mod
   
-import sys
-sys.setrecursionlimit(10000)
-
-def splice_rna(dna, intron_list):
-    for strand in intron_list:
-        dna = dna.replace(strand,"")
-    rna = dna2rna(dna)
-    return rna2codon(rna)
 def dna2rna(dna):
     rna = ''
     for symbol in dna:
@@ -185,6 +177,11 @@ def dna2rna(dna):
         elif symbol == 'C':
             rna = rna + 'C'
     return rna
+def splice_rna(dna, intron_list):
+    for strand in intron_list:
+        dna = dna.replace(strand,"")
+    rna = dna2rna(dna)
+    return rna2codon(rna)
 def rna2codon(triplets):
     amino = ''
     for triplet in range(0,int( len( triplets ) / 3 )):
