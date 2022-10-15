@@ -165,7 +165,9 @@ def source_rna(protein):
         count = (count * temporary)        
     return count%mod
   
-    
+import sys
+sys.setrecursionlimit(10000)
+
 def splice_rna(dna, intron_list):
     for strand in intron_list:
         dna = dna.replace(strand,"")
