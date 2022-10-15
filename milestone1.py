@@ -177,11 +177,6 @@ def dna2rna(dna):
         elif symbol == 'C':
             rna = rna + 'C'
     return rna
-def splice_rna(dna, intron_list):
-    rna = dna2rna(dna)
-    for strand in intron_list:
-        dna = dna.replace(strand,"")
-    return rna2codon(rna)
 def rna2codon(triplets):
     codon2amino = {
             'UUU': 'F', 'UUC': 'F', 'UUA': 'L', 'UUG': 'L',        'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
@@ -202,5 +197,9 @@ def rna2codon(triplets):
         if codon2amino[triplet] == "*":
             break
         amino = amino + codon2amino[triplet]
-
     return amino
+def splice_rna(dna, intron_list):
+    rna = dna2rna(dna)
+    for strand in intron_list:
+        dna = dna.replace(strand,"")
+    return rna2codon(rna)
