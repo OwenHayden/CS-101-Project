@@ -199,5 +199,8 @@ def rna2codon(triplets):
     amino = ''
     for triplet in range(0,int( len( triplets ) / 3 )):
         triplet = triplets[3*triplet:3*triplet+3]
+        if codon2amino[triplet] == "*":
+            break
         amino = amino + codon2amino[triplet]
+
     return amino
