@@ -1,4 +1,4 @@
-def s(dna):
+def dna_count(dna):
     #calculates number of times each nucleotide appears in a string
     #makes sure string is capatalized 
     dna = dna.upper()
@@ -182,7 +182,7 @@ def splice_rna(dna, intron_list):
         dna = dna.replace(strand,"")
     rna = dna2rna(dna)
     return rna2codon(rna)
-def rna2codon(triplets):
+def rna2_codon(triplets):
     amino = ''
     for triplet in range(0,int( len( triplets ) / 3 )):
         triplet = triplets[3*triplet:3*triplet+3]
