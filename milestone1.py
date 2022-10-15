@@ -179,9 +179,9 @@ def dna2rna(dna):
             rna = rna + 'C'
     return rna
 def splice_rna(dna, intron_list):
-    for strand in intron_list:
-        dna = dna.replace(strand,"")
     rna = dna2rna(dna)
+    for strand in intron_list:
+        rna = rna.replace(strand,"")
     return rna2codon(rna)
 def rna2codon(triplets):
     codon2amino = {
