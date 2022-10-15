@@ -170,7 +170,7 @@ def splice_rna(dna, intron_list):
     for strand in intron_list:
         dna = dna.replace(strand,"")
     rna = dna2rna(dna)
-    return rna2codons(rna)
+    return rna2codon(rna)
 def dna2rna(dna):
     rna = ''
     for symbol in dna:
