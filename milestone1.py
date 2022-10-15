@@ -1,4 +1,4 @@
-def dna_count(dna):
+def s(dna):
     #calculates number of times each nucleotide appears in a string
     #makes sure string is capatalized 
     dna = dna.upper()
@@ -8,7 +8,7 @@ def dna_count(dna):
     count_T = dna.count('T')
     return count_A,count_C,count_G,count_T
 #calls function and nucleotides being counted
-count = dna_count("")
+count = s("")
 nucleotides = ('A','C','G','T')
 #makes a dictionary
 #creates an item using nucleotides and subsequent value count
@@ -181,7 +181,7 @@ def dna2rna(dna):
 def splice_rna(dna, intron_list):
     rna = dna2rna(dna)
     for strand in intron_list:
-        rna = rna.replace(strand,"")
+        dna = dna.replace(strand,"")
     return rna2codon(rna)
 def rna2codon(triplets):
     codon2amino = {
