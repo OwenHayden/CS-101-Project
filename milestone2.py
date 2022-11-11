@@ -16,3 +16,41 @@ def random_genome(dna, gc_content):
         prob = cg * math.log10(float(gc_content[i]) / 2) + at * math.log10((1 - float(gc_content[i])) / 2)
         result.append(round(prob, 3))
     return result
+
+from itertools import permutations
+
+# first creates a function that combines only two strings (for assemble_genome)
+def superstring(string1,string2):
+    superstring = ""
+    if string1 == string2:
+        superstring = string1
+    else:
+        for i in range(1,len(string1)):
+            if string1[-i:] == string2[:i ]:  # compares end of 1st string and start of 2nd string, increasing in length as i increases
+                superstring = string1 + string2[i:] # this method naturally selects for smallest string
+
+            elif i == len(string1) - 1 and superstring == '': # when none of the substrings match
+                superstring = string1 + string2
+                
+    return superstring
+
+def assemble_genome(dna_list):
+    
+    superstring_dict = {}
+    new_string = ''
+    
+    for group in permutations( dna_list,len(dna_list) ):    # tries every possible combo. of strings
+        
+        new_string = group[0] # repeatedly uses superstring function, adding each string in each permutation
+        for i in range(1,len(dna_list)):
+            new_string = superstring(new_string,group[i])
+            if i == len(dna_list) - 1:  # once it reaches the end of a permutation, adds it to dict with its length as the value
+                superstring_dict[ new_string ] = len(new_string)
+
+    shortest_string = min(superstring_dict, key = superstring_dict.get) # finds the key of the smallest value    
+    
+    return shortest_string
+            
+# Source for itertools function: https://docs.python.org/3/library/itertools.html
+# Source for finding corresponding key of minimum value: 
+# https://stackoverflow.com/questions/3282823/get-the-key-corresponding-to-the-minimum-value-within-a-dictionary
