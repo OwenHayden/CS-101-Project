@@ -1,7 +1,0 @@
-def get_edges(dna_dict):
-    adj_list = []
-    for key1, dna1 in dna_dict.items():
-            for key2, dna2 in dna_dict.items():
-                if key1 != key2 and dna1[-3:] == dna2[:3]:
-                    adj_list.append((key1, key2))
-            return adj_list
