@@ -50,7 +50,23 @@ def assemble_genome(dna_list):
     shortest_string = min(superstring_dict, key = superstring_dict.get) # finds the key of the smallest value    
     
     return shortest_string
-            
 # Source for itertools function: https://docs.python.org/3/library/itertools.html
 # Source for finding corresponding key of minimum value: 
 # https://stackoverflow.com/questions/3282823/get-the-key-corresponding-to-the-minimum-value-within-a-dictionary
+
+from math import factorial
+
+def perfect_match(rna):
+    
+    c = 0
+    a = 0
+    
+    for letter in rna: # counts number of each letter (only 'C' and 'A' are needed because they're equal to 'G' and 'U')
+        if letter == 'C':
+            c += 1
+        elif letter == 'A':
+            a += 1
+    perfect_matches = factorial(c) * factorial(a) # this is what I worked out to be the formula
+    # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
+    
+    return perfect_matches
