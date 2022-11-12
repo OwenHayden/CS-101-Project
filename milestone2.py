@@ -1,3 +1,28 @@
+def shared_motif(dna_list):
+    
+    longest_motif = ''
+    
+    for i in range(len(dna_list[0])):
+        
+        for j in range(i+1, len(dna_list[0])+1):
+            
+             motif = (dna_list[0])[i:j]   #finds all motifs for first DNA sequence in the list
+                
+             seq_index = 1  #index of the nest string
+            
+            #determine if each motif is in all the other lists:
+             for str_num in range(1,len(dna_list)):
+                if motif in dna_list[seq_index] and seq_index + 1 == len(dna_list) and len(longest_motif) < len(motif):
+                        
+                        # If a motif is in all sequences and is longer than the previous longest motif, it becomes the new longest common motif.
+                        longest_motif = motif
+                        
+    return longest_substring
+         
+#REFERENCES: 
+#https://www.folkstalk.com/tech/longest-common-substring-with-code-examples/
+#https://www.geeksforgeeks.org/longest-common-substring-array-strings/                                                 
+            
 def get_edges(dna_dict):
     adj_list = []
     for key1, dna1 in dna_dict.items():
