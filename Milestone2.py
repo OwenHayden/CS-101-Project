@@ -111,8 +111,7 @@ def assemble_genome(dna_list):
 from math import factorial
 
 def perfect_match(rna):
-    u = 0
-    g = 0
+  
     c = 0
     a = 0
     
@@ -121,10 +120,6 @@ def perfect_match(rna):
             c += 1
         elif letter == 'A':
             a += 1
-	elif letter == 'G':
-            g += 1
-	elif letter == 'U':
-            u += 1
     perfect_matches = factorial(c) * factorial(a) # this is what I worked out to be the formula
     # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
     
