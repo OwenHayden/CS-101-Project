@@ -27,7 +27,7 @@ def find_splice(dna_motif,dna):
 #https://stackoverflow.com/questions/11422781/comparing-list-values-by-index-in-python
 
 def shared_motif(dna_list):
-  substr = ''
+  substr = '' 
   if len(dna_list) > 1 and len(dna_list[0]) > 0:
     for i in range(len(dna_list[0])):
         for j in range(len(dna_list[0])-i+1):
@@ -133,7 +133,6 @@ def perfect_match(rna):
     # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
     
     return perfect_matches
-
 
 
 def reverse_complement(dna): #Code taken from Milestone 1
