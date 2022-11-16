@@ -8,7 +8,7 @@ def shared_motif(dna_list):
             
              motif = (dna_list[0])[i:j]   #finds all motifs for first DNA sequence in the list
                 
-             seq_index = 1  #index of the nest string
+             seq_index = 1  #index of the first motif
             
             #determine if each motif is in all the other lists:
              for str_num in range(1,len(dna_list)):
@@ -95,3 +95,60 @@ def perfect_match(rna):
     # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
     
     return perfect_matches
+
+
+
+def reverse_complement(dna): #Code taken from Milestone 1
+    
+    dna = dna.upper()
+    complementary_strand = ''
+    
+    
+    for base in dna:   #for loop matches each base to its complementary base
+        if base == 'A':
+            complementary_strand = complementary_strand + 'T'
+        elif base == 'C':
+             complementary_strand = complementary_strand + 'G'
+        elif base == 'T':
+             complementary_strand = complementary_strand + 'A'
+        elif base == 'G':
+             complementary_strand = complementary_strand + 'C'
+    
+    reverse_complement = complementary_strand [::-1] #reverses the complementary DNA strand
+    
+    return reverse_complement
+
+
+
+def rev_palindrome(dna):     
+    tuples_list = []      
+    
+    #nested for loop checks all possible pieces of dna from 4 to 12 bp
+    
+    for i in range(len(dna)-4):         
+       
+    
+        if len(dna) > i+12:
+            
+            #if dna is more than 12 bp the min length of a piece is 3 bp and max length is 12 bp
+            
+            for j in range(i+3,i+12):    
+                piece_of_dna = dna[i:j+1]  #all possible pieces starting at a particular i
+                if reverse_complement(piece_of_dna) == piece_of_dna: #if reverse complement of a piece is the original piece, it's a palindrome!             
+                    tuples_list.append((i,j-i+1)) #position (i) is where the piece starts, so length of the piece is found by j-(i+1)
+        
+        else: 
+            
+            #if dna is less than 12 bp the max length of a piece is whatever length the dna strand is, but otherwise, the loop is the same
+            
+            for j in range(i+3,len(dna)):                          
+                piece_of_dna = dna[i:j+1] 
+                if reverse_complement(piece_of_dna) == piece_of_dna:                 
+                    tuples_list.append((i,j-i+1))
+    
+    return tuples_list
+
+#reference1 = https://datagy.io/python-palindrome/ 
+#reference2 = https://www.geeksforgeeks.org/python-program-check-string-palindrome-not/
+
+
