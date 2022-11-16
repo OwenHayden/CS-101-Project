@@ -110,29 +110,33 @@ def assemble_genome(dna_list):
 
 from math import factorial
 
-def perfect_match(rna):
-    
-    c = 0
-    a = 0
-    u = 0
-    g = 0
+def fact(n):
+    if n==1 or n==0:
+        return 1
+    return n*fact(n-1)
 
-    for letter in rna: # counts number of each letter (only 'C' and 'A' are needed because they're equal to 'G' and 'U')
-        if letter == 'C':
-            c += 1
-        elif letter == 'A':
-            a += 1
-	elif letter == 'G':
-	    g += 1
-	elif letter == 'U':
-	    u += 1
-    if c != g or a != u:
-        perfect_matches = 0
+# Function to calculate total Number of perfect matching    
+def perfect_match(rna):
+    # Dictionary to calculate frequency of A,C,G,and U
+    d= {'A':0,'C':0,'G':0,'U':0}
+    for i in rna:
+        d[i]+=1
+    # if there exist an 'A' for each 'U' and a 'G' for each 'C', then we will have Perfect_Match
+    if d['A']==d['U'] and d['C']==d['G']:
+        # Total number of perfect matching will be Factorial(number of A) * Factorial(number of C)
+        return fact(d['A'])*fact(d['C'])
     else:
-	perfect_matches = factorial(c) * factorial(a) # this is what I worked out to be the formula
-    # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
-    
-    return perfect_matches
+        return "Perfect Match doesn't exist"
+
+def main():
+    rna = input("Enter RNA String : \n")
+    total_match = perfect_match(rna)
+    if type(total_match)==int:
+        print("Total Number of perfect matching : ",total_match)
+    else:
+        print(total_match)
+if __name__=="__main__":
+    main()
 
 
 def reverse_complement(dna): #Code taken from Milestone 1
