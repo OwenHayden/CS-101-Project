@@ -1,3 +1,31 @@
+def find_splice(dna_motif,dna):
+    #creates empty list to hold positions of indexes
+    positions = []
+    
+    #iterates through dna string and compares indexes of 'i' in dna to 'j' in motif
+    j = 0
+    for i in range(len(dna)):
+        
+        #adds index to list with 'i'
+        #'j' changes start position when reiterating
+        
+        if dna[i] == dna_motif[j]:
+            j += 1
+            positions.append(i)
+            
+            #keeps indexing within range
+            if j == len(dna_motif):
+                break
+    #returns empty list if the whole motif isn't indexed
+    if len(positions) != len(dna_motif):
+        return []
+                
+    return positions
+
+#sources
+#https://pythonexamples.org/python-string-find-index-of-first-occurrence-of-substring/
+#https://stackoverflow.com/questions/11422781/comparing-list-values-by-index-in-python
+
 def shared_motif(dna_list):
     
     longest_motif = ''
