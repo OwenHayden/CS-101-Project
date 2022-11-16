@@ -27,25 +27,26 @@ def find_splice(dna_motif,dna):
 #https://stackoverflow.com/questions/11422781/comparing-list-values-by-index-in-python
 
 def shared_motif(dna_list):
-    
-    longest_motif = ''
-    
+  substr = ''
+  if len(dna_list) > 1 and len(dna_list[0]) > 0:
     for i in range(len(dna_list[0])):
-        
-        for j in range(i+1, len(dna_list[0])+1):
-            
-             motif = (dna_list[0])[i:j]   #finds all motifs for first DNA sequence in the list
-                
-             seq_index = 1  #index of the first motif
-            
-            #determine if each motif from first sequence is in all the other sequences:
-             for str_num in range(1,len(dna_list)):
-                if motif in dna_list[seq_index] and seq_index + 1 == len(dna_list) and len(longest_motif) < len(motif):
-                        
-                        # If a motif is in all sequences and is longer than the previous longest motif, it becomes the new longest common motif.
-                        longest_motif = motif
-                        
-    return longest_substring
+        for j in range(len(dna_list[0])-i+1):
+            if j > len(substr) and is_substr(dna_list[0][i:i+j], dna_list):
+              substr = dna_list[0][i:i+j]
+    return substr
+
+def is_substr(find, data):
+    if len(data) < 1 and len(find) < 1:
+        return False
+    for i in range(len(data)):
+        if find not in data[i]:
+            return False
+    return True
+
+if __name__ == "__main__":
+
+	dna_list = ["GATTACA", "TAGACCA", "ATACA"]
+	print(shared_motif(dna_list))
          
 #REFERENCES: 
 #https://www.folkstalk.com/tech/longest-common-substring-with-code-examples/
