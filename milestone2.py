@@ -10,7 +10,7 @@ def shared_motif(dna_list):
                 
              seq_index = 1  #index of the first motif
             
-            #determine if each motif is in all the other lists:
+            #determine if each motif from first sequence is in all the other sequences:
              for str_num in range(1,len(dna_list)):
                 if motif in dna_list[seq_index] and seq_index + 1 == len(dna_list) and len(longest_motif) < len(motif):
                         
