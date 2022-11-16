@@ -57,7 +57,7 @@ def get_edges(dna_dict):
             for key2, dna2 in dna_dict.items():
                 if key1 != key2 and dna1[-3:] == dna2[:3]:
                     adj_list.append((key1, key2))
-            return adj_list
+    return adj_list
 
 import math
 def random_genome(dna, gc_content):
