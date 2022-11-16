@@ -114,13 +114,22 @@ def perfect_match(rna):
     
     c = 0
     a = 0
-    
+    u = 0
+    g = 0
+
     for letter in rna: # counts number of each letter (only 'C' and 'A' are needed because they're equal to 'G' and 'U')
         if letter == 'C':
             c += 1
         elif letter == 'A':
             a += 1
-    perfect_matches = factorial(c) * factorial(a) # this is what I worked out to be the formula
+	elif letter == 'G':
+	    g += 1
+	elif letter == 'U':
+	    u += 1
+    if c != g or a != u:
+        perfect_matches = 0
+    else:
+	perfect_matches = factorial(c) * factorial(a) # this is what I worked out to be the formula
     # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
     
     return perfect_matches
