@@ -79,7 +79,7 @@ def superstring(string1,string2):
     if string1 == string2:
         superstring = string1
     else:
-        for i in range(1,len(string1)):
+        for i in range(len(string1)):
             if string1[-i:] == string2[:i ]:  # compares end of 1st string and start of 2nd string, increasing in length as i increases
                 superstring = string1 + string2[i:] # this method naturally selects for smallest string
 
@@ -113,15 +113,23 @@ from math import factorial
 def perfect_match(rna):
     
     c = 0
+    g = 0
     a = 0
+    u = 0
     
-    for letter in rna: # counts number of each letter (only 'C' and 'A' are needed because they're equal to 'G' and 'U')
+    for letter in rna:
         if letter == 'C':
             c += 1
         elif letter == 'A':
             a += 1
-    perfect_matches = factorial(c) * factorial(a) # this is what I worked out to be the formula
-    # number of unique pairings for 'C' and 'G' multiplied by those for 'A' and 'U'
+        elif letter == 'G':
+            g += 1
+        elif letter == 'U':
+            u += 1
+    if c != g or a != u:
+        perfect_matches = 0
+    else:
+        perfect_matches = factorial(c) * factorial(a)
     
     return perfect_matches
 
