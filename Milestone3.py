@@ -1,3 +1,4 @@
+from itertools import permutations
 def load_file(file):
     
 # open and read the input file
@@ -11,9 +12,6 @@ def load_file(file):
         
     return dna_list
   
-  
-from itertools import permutations
-
 # first creates a function that combines only two strings
 def superstring(string1,string2):
     superstring = ""
@@ -50,9 +48,3 @@ def assemble_genome2(dna_list):
     
     
     return shortest_string
-            
-# Source for itertools function: https://docs.python.org/3/library/itertools.html
-# Source for finding corresponding key of minimum value: 
-# https://stackoverflow.com/questions/3282823/get-the-key-corresponding-to-the-minimum-value-within-a-dictionary
-
-assemble_genome2(load_file('ms3-dna-mammuthus.txt'))
