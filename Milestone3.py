@@ -48,3 +48,4 @@ def assemble_genome2(dna_list):
     
     
     return shortest_string
+assemble_genome2(load_file('ms3-dna-mammuthus.txt'))
