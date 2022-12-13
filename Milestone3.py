@@ -54,3 +54,5 @@ def assemble_genome2(dna_list):
 # Source for itertools function: https://docs.python.org/3/library/itertools.html
 # Source for finding corresponding key of minimum value: 
 # https://stackoverflow.com/questions/3282823/get-the-key-corresponding-to-the-minimum-value-within-a-dictionary
+
+assemble_genome2(load_file('ms3-dna-mammuthus.txt'))
